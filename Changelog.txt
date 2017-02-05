@@ -1,0 +1,171 @@
+Changelog For Render Kernel!!
+
+R1:
+30607df (HEAD -> rk-oos-n, rk-oos-n-r1-t2) Update gitignore
+32c9a24 Defconfig: Enable CONFIG_FORCE_FAST_CHARGE
+0385e27 (origin/rk-oos-n-r1-t3-eas) ecryptfs: don't allow mmap when the lower fs doesn't support it
+d28e219 Revert "ecryptfs: forbid opening files without mmap handler"
+e33650f proc: prevent accessing /proc/<PID>/environ until it's ready
+e4b22be ext4: fix potential use after free in __ext4_journal_stop
+84445b6 block: fix use-after-free in sys_ioprio_get()
+45dbbd9 block: fix use-after-free in seq file
+1c8bcad arm64: avoid segfault on el0 cache maintenance
+930dca9 arm64: make sys_call_table const
+6fe2783 arm: dma-mapping: page align size before flush tlb
+feb03db Defconfig: Enable CONFIG_IP_NF_MATCH_RPFILTER & CONFIG_IP6_NF_MATCH_RPFILTER
+01b6130 msm: ion: Modified Secure Display buffer permissions
+d8cbcca binder: blacklist %p kptr_restrict
+f3b8793 ion: disable system contig heap
+13b724d percpu: fix synchronization between chunk->map_extend_work and chunk destruction
+264b600 percpu: fix synchronization between synchronous map extension and chunk destruction
+8b2d91d sched: Fix deadlock between cpu hotplug and upmigrate change
+1fc8239 perf: protect group_leader from races that cause ctx double-free
+b62077e perf: Fix event->ctx locking
+aa109e7 cgroup: prefer %pK to %p
+2237bfa perf: Fix race in swevent hash
+d28eb3d audit: fix a double fetch in audit_log_single_execve_arg()
+229c93d sched: qhmp_core: Fix possible hotplug race in set_cpus_allowed_ptr
+a9a8631 drivers: wakeup: bypass two WiFi wakelocks
+588c91d power: wakeup: prevent IPA_WS wakelock from being acquired by default
+a9bf4c6 Defconfig: Update
+f546130 fs/sync.c: make sync_file_range(2) use WB_SYNC_NONE writeback
+2f598c0 random: Remove kernel blocking API
+0cd5d43 random: Add callback API for random pool readiness
+cd3369b random: Blocking API for accessing nonblocking_pool
+e30da88 random: Wake up all getrandom(2) callers when pool is ready
+001cf53 arm: dts: 15811: enable MDSS Idle Power Collapse
+36e73a3 mdss: Do not wait for kickoff in display commit
+5a41944 arm: dts: 15811: enable some panel settings
+6fcd8a2 mdss: Fix solid fill unpack pattern
+b5b18c5 f2fs: revert https://git.kernel.org/cgit/linux/kernel/git/jaegeuk/f2fs-stable.git/commit/?h=linux-3.18.y&id=de62dad6f502c67fd01b5c0b1f7f242836ce90d0 to avoid system-wide deadlocks while using F2FS. Found by @arter97
+bb8b62a f2fs: set f2fs garbage collection thread as freezable
+f51ec64 power:qpnp-charger: extended charge time from 30s to 100s when battery status is near to full
+575de87 power: bq27541: Don't queue work onto a specific CPU
+ff422ca drivers: misc: implement usb fast charge mode
+5dbf514 msm: thermal: Add sysfs nodes to control parameters
+7eb9082 cpuidle: don't disable cpuidle when entering suspend
+1963c8a PM / devfreq: Add a governor white list
+af55b0d writeback: fix writeback cache thrashing
+ca1db94 sched/deadline: Avoid pointless __setscheduler()
+dbbd57b sched/wait: Fix a kthread race with wait_woken()
+a351a25 net: less interrupt masking in NAPI
+b3c2593 netdev, sched/wait: Fix sleeping inside wait event
+4f98ea0 arm64: lib: improve copy_page to deal with 128 bytes at a time
+a49e61ed arm64: crypto: reduce priority of core AES cipher
+a81750e arm64/crypto: use crypto instructions to generate AES key schedule
+0100786 arm64: crypto: increase AES interleave to 4x
+44ecb91 arm64/crypto: issue aese/aesmc instructions in pairs
+ff22372 arm64: crypto: Change priority of arm64 aes cipher.
+f401b14 crypto: arm64/crc32 - bring in line with generic CRC32
+eb8b0fd crypto: crc32 - Add ARM64 CRC32 hw accelerated module
+7e87368 msm: mpm: disable debugging
+0145d55 qcom: msm-core: uninterruptible wait - you can kiss my arse goodbye
+a7b6113 msm: Use interruptible wait to not affect load average
+0a903c3 qcom: mpm: use interruptible wait to reduce load avg
+f6e6f40 sched/core: Fix a race between try_to_wake_up() and a woken up task
+e0005fe Defconfig: Update
+623f7b0 msm: mdss: KCAL: disable igc update
+c005152 msm: mdss: KCAL: Send a pp display commit when changes are made
+64a3b07 leds-qpnp: Notification LED control - V1.1b
+0f074ca leds-qpnp: Notification LED control - V1.1a
+b4943ef leds-qpnp: fix torch light and potential other LEDs being affected by notification LED control
+03a87fe leds-qpnp: Notification LED control - V1.1
+1c52fe6 leds-qpnp: Notification LED control - V1
+6242ed3 input: synaptics: s1302: Make s1302_is_keypad_stopped() safe
+8fdb634 misc: fpc1020: Fix s1302_is_keypad_stopped() logic for home key
+6246fdf input: synaptics: fix off-screen gestures
+b2f38ce input: synaptics: s3320: Silence log spam
+4ba94db misc: fpc1020: Ignore home key presses when touchscreen is in use
+78fdfc9d input: synaptics: s1302: Stop keypad when touchscreen is in use
+0298f08 misc: fpc1020: Set fingerprintd priority to max when screen is off
+e1487b2 misc: fpc1020: Report key input when interrupt is fired with screen off
+8474770 misc: fpc1020: Clean up PM routines and move them into dedicated worker
+e32b072 touchscreen: add -Ofast
+4754506 syanptics_s3320: disable debug
+f984e7c input: synaptics: s3320: elevate workqueues to high-priority
+2d8b233 UPSTREAM: sched: Improve load balancing in the presence of idle CPUs
+3a9e60e sched: Implement lockless wake-queues
+52eeaef otg: enable by default
+d70e729 gpio_keys: call oem_check_force_dump_key() later
+48e4f91 kgsl: convert some workqueues to use kthreads
+8a94279 mdss: move to a kthread for vsync_retire_work_handler
+f0cdaad cfq-iosched: fix the setting of IOPS mode on SSDs
+67dc60c block: Make CFQ default to IOPS mode on SSDs
+0db43d2 msm_performance: Make input boosting optional
+e34ffe4 adrenoboost: finetuning algorithm - scale it a bit down
+2404d120 msm_adreno_tz: add adrenoboost parameter
+8aafad3 zen-iosched: change fifo_batch to 16
+0c08ee2 block: add zen scheduler
+ca3e0d4 ASoC: wcd9335: prevent speaker gain from being reset
+091ec59 sound_control: fix merge error
+a28f943 ASoC: wcd9335: add analog headphone gain
+188b606 ASoC: wcd9335: fix speaker gain controls
+5d90f72 ASoC: wcd9335: add mic gain and speaker gain for OnePlus3
+a6fabbd ASoC: wcd9335: Sound control
+65aaa86 tcp_cubic: do not set epoch_start in the future
+2bfa8a2 tcp_cubic: better follow cubic curve after idle period
+ead5dc4 tcp: fix timing issue in CUBIC slope calculation
+5eab264 net: sch_generic: Allow devices to opt-out net watchdog
+469eff5 cfq-iosched: fix the setting of IOPS mode on SSDs
+f08c0f1 block: Make CFQ default to IOPS mode on SSDs
+6847953 disable crc check
+2b509f4 mdss mdp: kcal for mdss_mdp_v1_7
+e4bb597 qpnp-haptic: Dejank the haptics
+ebf6ba7 platform/msm: haptic: expose vibrate function
+b761399 msm: qpnp-haptic: disable vibration when vmax_mv_strong is set to min
+2bb49ba platform/msm: haptic: add sysfs node for vmax_mv
+ef3234e Allow selectable tick rate
+fe0071d PM: devfreq: Fix simple_ondemand crashing on startup
+0580b0a msm: kgsl: Report correct GPU frequency in sysfs
+4dd5d6d PM: devfreq: Use high priority workqueue
+c13cec4 AIO: Don't plug the I/O queue in do_io_submit()
+12f0b39 block, bfq: add Early Queue Merge (EQM) to BFQ-v7r8 for 3.18.0
+51c164b block: introduce the BFQ-v7r8 I/O sched for 3.18.0
+1d2282b block: cgroups, kconfig, build bits for BFQ-v7r8-3.18.0
+d5bdf71 SIO: update for linux 3.18
+6ebc07c FIOPS: update for linux 3.18
+c5b2d16 Add SIO and FIOPS i/o schedulers
+22a25c0 Added fsync on/off support.
+3d60751 mm: slub: Default slub_max_order to 0
+9071331 mmc: move to a SCHED_FIFO thread
+58c567a Build: Update build script to denote Android N
+876ac75 Defconfig: Add WLAN Entries
+1db9ab6 qcacld-2.0: fix build warnings
+9280440 Defconfig: Update
+49a73a2 binfmt_elf.c: use get_random_int() to fix entropy depleting
+5995120 qdsp6v2: extend compilation with Os
+930abaa sound: soc: optimize for size
+f91caa0 sound: msm: qdsp6v2: optimize for size
+24831e4 UPSTREAM: sched/preempt: Fix preempt_count manipulations
+60484e7 fs: Workaround the compiler's bad optimization
+8d12acf qcacld-2.0: Update to LA.UM.5.5.c1-06000-8x96.0
+64b3ef3 qcacld-2.0: disable the debug flag for a ~2Mb smaller .ko file
+2987917 qcacld-2.0: Release LA.UM.5.5.r1-01800-8x96.0
+c39a875 qcacld-2.0: Fix stack corruption issue in sme_RrmProcessNeighborReport
+3f620fc qcacld-2.0: Update to LA.HB.1.3.2-22100-8x96.0
+1cb5b70 qcacld-2.0: Increase multicast filter count
+8268f90 qcacld-2.0: Fix set all-zero address mcast filter
+249250a qcacld-2.0: Fix IPV6 IPA Rx property setting
+b05863d qcacld-2.0: Update to release LA.HB.1.3.2-19000-8x96.0
+4d150f3 qcacld-2.0: Release LA.HB.1.3.2-16800-8x96.0
+dda6928 qcacld-2.0: Chillax the spammy logging
+4bd5e63 qcacld-2.0: Update to LA.HB.1.3.2-15400-8x96.0
+975291a staging: qcacld-2.0: Clean up unused files
+b30086e staging: qcacld-2.0: Import LA.HB.1.3.1.c1-00700-8x96.0 from CAF
+ab8459e power: qpnp-fg: queue work on system_power_efficient_wq
+8111ac3 power: bq27541: queue work on system_power_efficient_wq
+25f72be power: bcl: queue work on system_power_efficient_wq
+6939a64 drivers: mdss: queue work on system_power_efficient_wq
+a21b543 drivers: mdss: queue input handler functions to a high prio wq
+b4ef940 drivers: thermal: queue work on system_power_efficient_wq
+a62886b asm-generic: atomic.h: relaxed atomic_read
+fd06a04 proc: Remove verifiedbootstate flag from /proc/cmdline
+57ed857 asoc/msm: Disable unwanted modules in arch config
+8e283e9 arch: Unbreak mrproper/clean
+07f23bd arm64: Fix the ARM userspace build
+6ca946d msm: Fix Kconfig warnings
+683b992 build standalone (Edited)
+2550a83 Fix build errors
+4e10c8e0 Makefile: Optimize
+d42f84d Fix standalone compiling
+71b1698 Render Kernel: Add in Build Utils
